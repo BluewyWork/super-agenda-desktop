@@ -1,0 +1,147 @@
+﻿<Window x:Class="WpfAppIntermodular.HomeHabitacion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppIntermodular.rsc"
+        mc:Ignorable="d" FontFamily="Montserrat"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="HomeHabitacion" Height="900" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#ff271c3a" Offset="0"/>
+                    <GradientStop Color="#ff332a45" Offset="0.25"/>
+                    <GradientStop Color="#ff514562" Offset="0.5"/>
+                    <GradientStop Color="#ff84789c" Offset="0.9"/>
+                    <GradientStop Color="#ffbeb6ce" Offset="1"/>
+                </LinearGradientBrush>
+
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.ColumnSpan="2">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Image Source="../logo_hotel_sin_fondo.png" Width="200px"></Image>
+                </StackPanel>
+                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
+                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Usuarios" Content="Empleados" Margin="25" Click="Usuarios_Click"></Button>
+                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Reservas" Content="Habitaciones" Click="Reserva_Click" ></Button>
+                <Button Style="{StaticResource ButtonStyleHeader}" Content="Reservas" ></Button>
+                <Menu Width="180" Background="Transparent" Margin="100 35 0 0">
+                    <MenuItem>
+                        <MenuItem.Header>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="N.Usuario" Foreground="#FFCCCCCC" Margin="0 5 0 0"/>
+                                <Image Height="25" Source="../perfil.png" Margin="10 0 0 10"/>
+                            </StackPanel>
+                        </MenuItem.Header>
+                        <MenuItem Header="Crear Empleado" Click="CrearEmpleado_Click"/>
+                        <MenuItem Header="Cerrar Sesión" Click="Cerrar_Click"/>
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="307*"></ColumnDefinition>
+                <ColumnDefinition Width="493*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <StackPanel   Height="436" Width="297" Margin="10,0,0,330">
+                    <Label Style="{StaticResource LabelTitulo}" >Buscador:</Label>
+                    <StackPanel Width="195" >
+                        <StackPanel.Resources>
+                            <Style TargetType="{x:Type Label}">
+                                <Setter Property="FontSize" Value="16" />
+                            </Style>
+                        </StackPanel.Resources>
+                        <StackPanel Margin="0 10 0 0" Width="190">
+                            <Label Content="Fecha de entrada" Width="182"/>
+                            <DatePicker SelectedDate= "{Binding CheckInBuscador, UpdateSourceTrigger=PropertyChanged}" Width="184" />
+                        </StackPanel>
+                        <StackPanel Margin="0 30 0 0" Width="198">
+                            <Label Content="Fecha de salida" Width="201" />
+                            <DatePicker SelectedDate= "{Binding CheckOutBuscador, UpdateSourceTrigger=PropertyChanged}" Height="26" Width="192"/>
+                        </StackPanel>
+                        <StackPanel Margin="0 30 0 50">
+                            <Label Content="Correo cliente"/>
+                            <TextBox Height="25">
+                                <Validation.ErrorTemplate>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <Border BorderThickness="2" BorderBrush="red" Margin="0 0 96 0">
+                                                <AdornedElementPlaceholder/>
+                                            </Border>
+                                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="red"  Margin="0 30 0 0"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Validation.ErrorTemplate>
+                                <Binding Path="CorreoClienteBuscador" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay" StringFormat="{}{0:N2}">
+                                    <Binding.ValidationRules>
+                                        <local:ValidateEmail/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox>
+                        </StackPanel>
+                    </StackPanel>
+                    <DockPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left"
+                               Margin="40 30 20 10" Width="216" >
+                        <Button Style="{StaticResource ButtonStyle}" Command="{Binding BuscarReservaCommand}" Margin="0 10 0 0" Content="Buscar"/>
+                        <Button Style="{StaticResource ButtonStyle}" Margin="30 10 0 0" Foreground="#35B697" FontWeight="Bold"
+                                Background="Transparent" BorderBrush="#35B697" BorderThickness="2" Content="Limpiar" Command="{Binding LimpiarReservaCommand}" Width="90"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="22*"></RowDefinition>
+                    <RowDefinition Height="39*"></RowDefinition>
+                    <RowDefinition Height="164*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Style="{StaticResource LabelTitulo}" Margin="23,10,-23,77" Grid.RowSpan="3">Resultados:</Label>
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding Reservas}" SelectedItem="{Binding ReservaSeleccionada}" MaxHeight="500" Margin="0 0 10 180" Grid.RowSpan="3" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Nombre cliente" Binding="{Binding GuestName}" IsReadOnly="True" />
+                        <DataGridTextColumn Header="Correo cliente" Binding="{Binding GuestEmail}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Nº Hab" Binding="{Binding RoomNumber}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Precio noche" Binding="{Binding PricePerNight}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="CheckIn">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding CheckIn, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="CheckOut">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <DatePicker SelectedDate="{Binding CheckOut, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DockPanel HorizontalAlignment="Right" Margin="0,348,0,150" Grid.Row="2" Width="245">
+                    <Button Content="Editar reserva" Background="Orchid"
+                            Style="{StaticResource ButtonStyle}" Margin="0 10 10 0" Width="110" Command="{Binding EditarReservaCommand}" />
+                    <Button Content="Eliminar reserva" 
+                            Style="{StaticResource ButtonStyle}" Background="Red" Margin="0 10 10 0" Width="110" Command="{Binding EliminarReservaCommand}" />
+                </DockPanel>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>          
+                   
+                   
+                   
+                   

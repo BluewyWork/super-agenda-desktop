@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="btn.jpg" />
+    <None Remove="btn.png" />
+    <None Remove="cover-removebg-preview.png" />
+    <None Remove="cover.png" />
+    <None Remove="font\Montserrat-Regular.ttf" />
+    <None Remove="habitacion.png" />
+    <None Remove="logo_hotel.jpg" />
+    <None Remove="logo_hotel_sin_fondo.png" />
+    <None Remove="logo_sin_fondo.png" />
+    <None Remove="logo_sin_fondo2-removebg-preview.png" />
+    <None Remove="perfil.png" />
+    <None Remove="perfilMuestra.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="font\Montserrat-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="3.0.1" />
+    <PackageReference Include="Microsoft.OData.Edm" Version="7.20.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="btn.jpg" />
+    <Resource Include="btn.png" />
+    <Resource Include="cover-removebg-preview.png" />
+    <Resource Include="cover.png" />
+    <Resource Include="habitacion.png" />
+    <Resource Include="logo_hotel.jpg" />
+    <Resource Include="logo_hotel_sin_fondo.png" />
+    <Resource Include="logo_sin_fondo.png" />
+    <Resource Include="logo_sin_fondo2-removebg-preview.png" />
+    <Resource Include="perfil.png" />
+    <Resource Include="perfilMuestra.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Settings1.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
