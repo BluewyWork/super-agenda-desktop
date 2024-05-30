@@ -23,18 +23,25 @@ namespace wpfappintermodular.api
         public ApiService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("http://localhost:8000");
+            _httpClient.BaseAddress = new Uri("http://localhost:8001");
         }
 
         public async Task<bool> AutenticarUsuarioAsync(string email, string password)
         {
-            var data = new { email, password };
-            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/auth/employee/login", data);
+            string username = email;
+            var data = new { username, password };
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/api/admin/auth/login", data);
             if (response.IsSuccessStatusCode)
             {
-                string jwtCookie = response.Headers.GetValues("Set-Cookie").FirstOrDefault();
-                string[] cookies = jwtCookie.Split(';');
-                Settings1.Default.JWTTokenCookie = cookies[0];
+                // string jwtCookie = response.Headers.GetValues("Set-Cookie").FirstOrDefault();
+                // string[] cookies = jwtCookie.Split(';');
+                // Settings1.Default.JWTTokenCookie = cookies[0];
+                string responseAsString = await response.Content.ReadAsStringAsync();
+                dynamic result = JObject.Parse(responseAsString);
+                string token = result.data.token;
+                Settings1.Default.AccessToken = token;
+
+
                 return true;
             }
             else

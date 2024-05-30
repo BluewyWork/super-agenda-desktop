@@ -24,7 +24,7 @@
                     <TextBox.Text>
                         <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
-                                <local:ValidateEmail/>
+                            
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
