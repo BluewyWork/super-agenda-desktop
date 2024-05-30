@@ -58,9 +58,9 @@ namespace WpfAppIntermodular.ViewModels
         {
             if (EmpleadoSelecionado == null) return;
 
-            if (EmpleadoSelecionado.Email == null) return;
+            if (EmpleadoSelecionado.Name == null) return;
 
-            await apiService.EliminarUsuario(EmpleadoSelecionado.Email);
+            await apiService.EliminarUsuario(EmpleadoSelecionado.Name);
         }
 
         public ObservableCollection<EmpleadoModel> Empleados
@@ -83,12 +83,6 @@ namespace WpfAppIntermodular.ViewModels
 
             if (!string.IsNullOrEmpty(SearchName))
                 filteredEmpleados = filteredEmpleados.Where(e => e.Name.Contains(SearchName));
-
-            if (!string.IsNullOrEmpty(SearchSurname))
-                filteredEmpleados = filteredEmpleados.Where(e => e.Surname.Contains(SearchSurname));
-
-            if (!string.IsNullOrEmpty(SearchEmail))
-                filteredEmpleados = filteredEmpleados.Where(e => e.Email.Contains(SearchEmail));
 
             Empleados = new ObservableCollection<EmpleadoModel>(filteredEmpleados);
         }

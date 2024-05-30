@@ -78,10 +78,10 @@ namespace WpfAppIntermodular
         {
             List<UsuarioModel> users = ListBoxCustomers.ItemsSource.Cast<UsuarioModel>().ToList();
 
-            if (!string.IsNullOrEmpty(NameTextBox.Text) || !string.IsNullOrEmpty(SurnameTextBox.Text) || !string.IsNullOrEmpty(EmailTextBox.Text))
+            if (!string.IsNullOrEmpty(NameTextBox.Text))
             {
                 // At least one field is not empty
-                if (!string.IsNullOrEmpty(NameTextBox.Text) && !string.IsNullOrEmpty(SurnameTextBox.Text) && !string.IsNullOrEmpty(EmailTextBox.Text))
+                if (!string.IsNullOrEmpty(NameTextBox.Text))
                 {
                     // All three fields are not empty, do something
                     ListBoxCustomers.ItemsSource = FilterByName(users, NameTextBox.Text)

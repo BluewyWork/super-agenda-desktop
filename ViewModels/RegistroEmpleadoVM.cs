@@ -100,11 +100,7 @@ namespace WpfAppIntermodular.ViewModels
         {
             EmpleadoModel empleadoModel = new EmpleadoModel();
             empleadoModel.Name = NameEmployee;
-              empleadoModel.Surname = SurnameEmployee;
-            empleadoModel.Admin = AdminEmployee;
             empleadoModel.Password = PasswordEmployee;
-            empleadoModel.Email = EmailEmployee;
-            empleadoModel.Image = ImageEmployee;
 
             apiService = new ApiService();
            await apiService.CreateEmployee(empleadoModel);

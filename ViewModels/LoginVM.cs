@@ -5,6 +5,7 @@ using System.Windows.Input;
 using wpfappintermodular.api;
 using WpfAppIntermodular.Models;
 using WpfAppIntermodular.rsc;
+using WpfAppIntermodular.View;
 
 namespace WpfAppIntermodular.ViewModels
 {
@@ -93,7 +94,7 @@ namespace WpfAppIntermodular.ViewModels
             apiService = new ApiService();
             if( await apiService.AutenticarUsuarioAsync(Email, Password))
             {
-                Home home = new Home();
+                Usuarios home = new Usuarios();
                 home.Show();
                 mw.Close();
             }

@@ -10,6 +10,7 @@ namespace WpfAppIntermodular.ViewModels
     class PerfilUsuarioVM : INotifyPropertyChanged
     {
         private ApiService apiService;
+        public EmpleadoModel emp;
         private PerfilUsuario view;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -27,7 +28,7 @@ namespace WpfAppIntermodular.ViewModels
         private async void Guardar()
         {
             
-             await apiService.UpdateEmployee(view.VName.Text, view.VSurname.Text, view.VEmail.Text);
+             await apiService.UpdateEmployee(emp);
         }
 
    

@@ -32,14 +32,8 @@
                     <Label Content="Nombre" FontSize="16"/>
                     <TextBox x:Name="VName" Style="{StaticResource TextBoxForm}" Padding="2"/>
                 </StackPanel>
-                <StackPanel Margin="40,20">
-                    <Label Content="Apellidos" FontSize="16"/>
-                    <TextBox Name="VSurname" Style="{StaticResource TextBoxForm}" Padding="2"/>
-                </StackPanel>
-                <StackPanel Margin="40,20">
-                    <Label Content="Email" FontSize="16"/>
-                    <TextBox IsEnabled="False" x:Name="VEmail" Style="{StaticResource TextBoxForm}" Padding="2" />
-                </StackPanel>
+                <StackPanel Margin="40,20"/>
+                <StackPanel Margin="40,20"/>
             </StackPanel>
         </Border>
 

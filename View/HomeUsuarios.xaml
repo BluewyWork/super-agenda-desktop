@@ -34,8 +34,6 @@
 
                 <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
                 <Button Style="{StaticResource ButtonStyleHeader}" Content="Empleados"/>
-                <Button Style="{StaticResource ButtonStyleHeader}" Content="Habitaciones" x:Name="Reserva" Click="Reserva_Click"/>
-                <Button Style="{StaticResource ButtonStyleHeader}" Content="Reservas" x:Name="Habitaciones" Click="Habitaciones_Click"/>
                 <Menu Width="180" Background="Transparent" Margin="100 35 0 0">
                     <MenuItem>
                         <MenuItem.Header>
@@ -62,14 +60,8 @@
                         <Label Content="Nombre" FontSize="16"/>
                         <TextBox x:Name="NameTextBox" Text="{Binding SearchName}" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray"/>
                     </StackPanel>
-                    <StackPanel Margin="10,10" Width="Auto">
-                        <Label Content="Apellidos" FontSize="16"/>
-                        <TextBox x:Name="SurnameTextBox" Text="{Binding SearchSurname}" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray"/>
-                    </StackPanel>
-                </DockPanel>
+                                   </DockPanel>
                 <StackPanel Margin="10,20" Width="Auto">
-                    <Label Content="Email" FontSize="16"/>
-                    <TextBox x:Name="EmailTextBox" Text="{Binding SearchEmail}" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray"/>
                 </StackPanel>
                 <DockPanel  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 10 20 10" >
                     <Button Margin="0 10 0 0"  Style="{StaticResource ButtonStyle}" 
@@ -98,15 +90,7 @@
                                     <Label Content="Nombre empleado" Style="{StaticResource labelReservas}"/>
                                     <TextBox Text="{Binding Name}" Style="{StaticResource TBMain}"/>
                                 </StackPanel>
-                                <StackPanel>
-                                    <Label Content="Apellido empleado" Style="{StaticResource labelReservas}"/>
-                                    <TextBox Text="{Binding Surname}" Style="{StaticResource TBMain}"/>
-                                </StackPanel>
-                                <StackPanel>
-                                    <Label Content="Correo empleado" Style="{StaticResource labelReservas}"/>
-                                    <TextBox Text="{Binding Email}" Style="{StaticResource TBMain}"/>
-                                </StackPanel>
-                            </DockPanel>
+                                                           </DockPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>

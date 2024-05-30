@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WpfAppIntermodular;
@@ -88,7 +89,7 @@ namespace wpfappintermodular.api
                 JsonSerializerSettings settings = new JsonSerializerSettings();
                 settings.Converters.Add(new ObjectIdConverter());
 
-                MessageBox.Show($"{usuariosArray}");
+                //MessageBox.Show($"{usuariosArray}");
 
                 List<UsuarioModel> list = JsonConvert.DeserializeObject<List<UsuarioModel>>(usuariosArray.ToString(), settings);
                 return list;
@@ -162,7 +163,7 @@ namespace wpfappintermodular.api
 
         public async Task CreateEmployee(EmpleadoModel empleado)
         {
-            var data = new { empleado.Name, empleado.Surname, empleado.Admin, empleado.Password, empleado.Email, empleado.Image };
+            var data = new { empleado.Name, empleado.Password };
             _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
             var response = await _httpClient.PostAsJsonAsync("/auth/employee/register", data);
             if (response.StatusCode == HttpStatusCode.Created)
@@ -217,10 +218,10 @@ namespace wpfappintermodular.api
             try
             {
                 List < EmpleadoModel> empleados = new List<EmpleadoModel>();
-                _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
-                var response = await _httpClient.GetAsync("/api/admin/employee");
+                _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
+                var response = await _httpClient.GetAsync("/api/admin/admin/show/all");
 
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (response.IsSuccessStatusCode)
                 {
                     string responseBody = await response.Content.ReadAsStringAsync();
                     dynamic result = JObject.Parse(responseBody);
@@ -240,12 +241,28 @@ namespace wpfappintermodular.api
                 return null;
             }
         }
-        public async Task UpdateEmployee(string name, string surname, string email)
-        {
 
-            var data = new {name, surname, email};
-            _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
-            var response = await _httpClient.PutAsJsonAsync("/api/admin/employee", data);
+        // actualizar este metodo tambien
+        public async Task UpdateEmployee(EmpleadoModel emp)
+        {
+            var to = new { emp.ID, emp.Name, emp.Password }
+            
+            ;
+
+            AdminData corrected = new AdminData();
+
+            corrected.id = emp.ID;
+            corrected._name = emp.Name;
+            corrected._password = emp.Password;
+
+            string jsonPayload = JsonConvert.SerializeObject(corrected);
+
+            // Print or log the JSON payload
+            Console.WriteLine("Serialized JSON Payload: " + jsonPayload);
+            MessageBox.Show("Serialized JSON Payload: " + jsonPayload);
+
+            _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
+            var response = await _httpClient.PostAsJsonAsync("/api/admin/admin/update", jsonPayload);
 
             var responseCode = response.StatusCode;
 
@@ -264,6 +281,7 @@ namespace wpfappintermodular.api
             }
         }
 
+        // arreglar este metodo
         public async Task<Boolean> EliminarUsuario(string email)
         {
             // return true;

@@ -31,10 +31,9 @@ namespace WpfAppIntermodular
             PerfilUsuarioVM r = new PerfilUsuarioVM(this);
             DataContext = r;
             InitializeComponent();
+            r.emp = u;
             VName.Text = u.Name;
-            VSurname.Text = u.Surname;
-            VEmail.Text = u.Email;
-        }
+                }
 
        
         private void Atras_Click(object sender, RoutedEventArgs e)
