@@ -77,19 +77,25 @@ namespace wpfappintermodular.api
         public async Task<List<UsuarioModel>> MostrarUsuarios()
         {
             List<UsuarioModel> usuarios = new List<UsuarioModel>();
-            _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
-            var response = await _httpClient.GetAsync("/api/admin/tableGuest/all");
+            _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
+            var response = await _httpClient.GetAsync("/api/admin/user/show/all");
             if (response.IsSuccessStatusCode)
             {
                 string responseBody = await response.Content.ReadAsStringAsync();
                 dynamic result = JObject.Parse(responseBody);
                 JArray usuariosArray = result.data;
-                usuarios = JsonConvert.DeserializeObject<List<UsuarioModel>>(usuariosArray.ToString());
-                return usuarios;
+
+                JsonSerializerSettings settings = new JsonSerializerSettings();
+                settings.Converters.Add(new ObjectIdConverter());
+
+                MessageBox.Show($"{usuariosArray}");
+
+                List<UsuarioModel> list = JsonConvert.DeserializeObject<List<UsuarioModel>>(usuariosArray.ToString(), settings);
+                return list;
             }
             else
             {
-                MessageBox.Show("Error al mostrar los usuarios ", "Error");
+                MessageBox.Show("Error al mostrar los usuarios", "Error");
                 return usuarios;
             }
         }

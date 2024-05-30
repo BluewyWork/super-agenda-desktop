@@ -85,46 +85,15 @@ namespace WpfAppIntermodular
                 {
                     // All three fields are not empty, do something
                     ListBoxCustomers.ItemsSource = FilterByName(users, NameTextBox.Text)
-                        .Intersect(FilterBySurname(users, SurnameTextBox.Text))
-                        .Intersect(FilterByEmail(users, EmailTextBox.Text))
                         .ToList();
                 }
-                else if (!string.IsNullOrEmpty(NameTextBox.Text) && !string.IsNullOrEmpty(SurnameTextBox.Text))
-                {
-                    // Name and Surname are filled, do something
-                    ListBoxCustomers.ItemsSource = FilterByName(users, NameTextBox.Text)
-                        .Intersect(FilterBySurname(users, SurnameTextBox.Text))
-                        .ToList();
-                }
-                else if (!string.IsNullOrEmpty(NameTextBox.Text) && !string.IsNullOrEmpty(EmailTextBox.Text))
-                {
-                    // Name and Email are filled, do something
-                    ListBoxCustomers.ItemsSource = FilterByName(users, NameTextBox.Text)
-                        .Intersect(FilterByEmail(users, EmailTextBox.Text))
-                        .ToList();
-                }
-                else if (!string.IsNullOrEmpty(SurnameTextBox.Text) && !string.IsNullOrEmpty(EmailTextBox.Text))
-                {
-                    // Surname and Email are filled, do something
-                    ListBoxCustomers.ItemsSource = FilterBySurname(users, SurnameTextBox.Text)
-                        .Intersect(FilterByEmail(users, EmailTextBox.Text))
-                        .ToList();
-                }
+
                 else if (!string.IsNullOrEmpty(NameTextBox.Text))
                 {
                     // Only Name is filled, do something
                     ListBoxCustomers.ItemsSource = FilterByName(users, NameTextBox.Text);
                 }
-                else if (!string.IsNullOrEmpty(SurnameTextBox.Text))
-                {
-                    // Only Surname is filled, do something
-                    ListBoxCustomers.ItemsSource = FilterBySurname(users, SurnameTextBox.Text);
-                }
-                else if (!string.IsNullOrEmpty(EmailTextBox.Text))
-                {
-                    // Only Email is filled, do something
-                    ListBoxCustomers.ItemsSource = FilterByEmail(users, EmailTextBox.Text);
-                }
+
             }
             else
             {
@@ -133,11 +102,7 @@ namespace WpfAppIntermodular
 
         }
 
-        // Filter by email
-        public static List<UsuarioModel> FilterByEmail(List<UsuarioModel> usuarios, string email)
-        {
-            return usuarios.Where(u => u.Email == email).ToList();
-        }
+        
 
         // Filter by password
         public static List<UsuarioModel> FilterByPassword(List<UsuarioModel> usuarios, string password)
@@ -151,11 +116,6 @@ namespace WpfAppIntermodular
             return usuarios.Where(u => u.Name == name).ToList();
         }
 
-        // Filter by surname
-        public static List<UsuarioModel> FilterBySurname(List<UsuarioModel> usuarios, string surname)
-        {
-            return usuarios.Where(u => u.Surname == surname).ToList();
-        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
