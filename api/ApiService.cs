@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
@@ -245,33 +246,40 @@ namespace wpfappintermodular.api
         // actualizar este metodo tambien
         public async Task UpdateEmployee(EmpleadoModel emp)
         {
-            var to = new { emp.ID, emp.Name, emp.Password }
-            
-            ;
+            // Use the correct settings for serialization
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.Converters.Add(new ObjectIdConverter());
 
-            AdminData corrected = new AdminData();
+            // Corrected object for serialization
+            var corrected = new
+            {
+                _id = emp.ID,
+                username = emp.Name,
+                hashed_password = emp.Password
+            };
 
-            corrected.id = emp.ID;
-            corrected._name = emp.Name;
-            corrected._password = emp.Password;
-
-            string jsonPayload = JsonConvert.SerializeObject(corrected);
+            // Serialize the corrected object to JSON
+            string jsonPayload = JsonConvert.SerializeObject(corrected, settings);
 
             // Print or log the JSON payload
             Console.WriteLine("Serialized JSON Payload: " + jsonPayload);
             MessageBox.Show("Serialized JSON Payload: " + jsonPayload);
 
             _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
-            var response = await _httpClient.PostAsJsonAsync("/api/admin/admin/update", jsonPayload);
+
+            // Create StringContent with the serialized JSON payload
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            // Send the request with the serialized JSON payload
+            var response = await _httpClient.PostAsync("/api/admin/admin/update", content);
 
             var responseCode = response.StatusCode;
 
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
+            if (responseCode == HttpStatusCode.Unauthorized)
             {
                 MessageBox.Show("No tienes permisos para realizar esta acción", "Error");
             }
-            
-            if (responseCode == HttpStatusCode.OK)
+            else if (responseCode == HttpStatusCode.OK)
             {
                 MessageBox.Show("El usuario se ha actualizado correctamente", "Ok");
             }
@@ -280,6 +288,7 @@ namespace wpfappintermodular.api
                 MessageBox.Show("El usuario no se ha podido actualizar", "Error");
             }
         }
+
 
         // arreglar este metodo
         public async Task<Boolean> EliminarUsuario(string email)

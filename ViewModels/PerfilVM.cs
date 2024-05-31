@@ -27,7 +27,7 @@ namespace WpfAppIntermodular.ViewModels
          
         private async void Guardar()
         {
-            
+            emp.Name = view.VName.Text;
              await apiService.UpdateEmployee(emp);
         }
 
