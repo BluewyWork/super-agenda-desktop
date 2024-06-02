@@ -15,6 +15,7 @@ namespace WpfAppIntermodular.ViewModels
     {
         private ApiService apiService = new ApiService();
         private ObservableCollection<EmpleadoModel> _empleados;
+        private ObservableCollection<EmpleadoModel> _filterEmp;
         private string _searchName;
         private string _searchSurname;
         private string _searchEmail;
@@ -34,14 +35,11 @@ namespace WpfAppIntermodular.ViewModels
             DeleteUserCommand = new RelayCommand(DeleteUser, () => EmpleadoSelecionado != null);
         }
 
-        private void limparCampos()
+        private async void limparCampos()
         {
             SearchName = null;
             SearchSurname = null;
             SearchEmail = null;
-
-
-
         }
 
         public void EditUser()
@@ -96,7 +94,7 @@ namespace WpfAppIntermodular.ViewModels
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al mostrar empleados: {ex.Message}");
+                MessageBox.Show($"Error al mostrar empleados: {ex.Message}");
             }
 
         }

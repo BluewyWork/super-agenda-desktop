@@ -142,6 +142,11 @@ namespace WpfAppIntermodular
             this.Close();
         }
 
-        
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            HomeUsuarios x = new HomeUsuarios();
+            x.Show();
+            this.Close();
+        }
     }
 }
