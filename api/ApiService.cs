@@ -10,6 +10,7 @@ using System.Web;
 using System.Windows;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
+using MongoDB.Bson;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using WpfAppIntermodular;
@@ -288,15 +289,21 @@ namespace wpfappintermodular.api
                 MessageBox.Show("El usuario no se ha podido actualizar", "Error");
             }
         }
-
-
-        // arreglar este metodo
-        public async Task<Boolean> EliminarUsuario(string email)
+        public async Task<bool> EliminarUsuario(ObjectId id)
         {
-            // return true;
+            // Ensure the Authorization header is added correctly
+            if (!_httpClient.DefaultRequestHeaders.Contains("Authorization"))
+            {
+                _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
+            }
 
-            _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
-            var response = await _httpClient.DeleteAsync($"/api/admin/guest/delete/{email}");
+            // Create the DELETE request URL with the ObjectId
+            var url = $"/api/admin/admin/nuke/{id}";
+
+            // Send the DELETE request
+            var response = await _httpClient.DeleteAsync(url);
+
+            // Return whether the request was successful
             return response.IsSuccessStatusCode;
         }
 

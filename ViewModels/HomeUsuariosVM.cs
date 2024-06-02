@@ -60,7 +60,7 @@ namespace WpfAppIntermodular.ViewModels
 
             if (EmpleadoSelecionado.Name == null) return;
 
-            await apiService.EliminarUsuario(EmpleadoSelecionado.Name);
+            await apiService.EliminarUsuario(EmpleadoSelecionado.ID);
         }
 
         public ObservableCollection<EmpleadoModel> Empleados
