@@ -12,14 +12,12 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <StackPanel Margin="-10,0,10,0" Grid.ColumnSpan="2" >
-            <Image Grid.Column="0" Source="/logo_hotel.jpg" Margin="0,0,319,0"
-                      Height="189" Width="470"  Stretch="Fill"/>
             <StackPanel Width="350" Height="250" Margin="0 40 330 0" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <Separator Width="35" BorderThickness="4" BorderBrush="Black" />
                     <TextBlock Margin="10 0 0 0" FontWeight="Bold"  FontSize="16" FontFamily="Montserrat" Foreground="#8563C4"><Run Text="Acceso"/></TextBlock>
                 </StackPanel>
-                <Label Content="Email" FontSize="16"/>
+                <Label Content="Username" FontSize="16"/>
                 <TextBox x:Name="TbLogEmail" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray" >
                     <TextBox.Text>
                         <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">

@@ -28,9 +28,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <DockPanel Grid.ColumnSpan="2">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <Image Source="../logo_hotel_sin_fondo.png" Width="200px"></Image>
-                </StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
 
                 <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
                 <Button Style="{StaticResource ButtonStyleHeader}" Content="Empleados"/>
