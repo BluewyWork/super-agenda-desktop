@@ -163,18 +163,52 @@ namespace wpfappintermodular.api
             }
         }
 
-        public async Task CreateEmployee(EmpleadoModel empleado)
+        public async Task CreateEmployee(EmpleadoModel emp)
         {
-            var data = new { empleado.Name, empleado.Password };
-            _httpClient.DefaultRequestHeaders.Add("Cookie", Settings1.Default.JWTTokenCookie);
-            var response = await _httpClient.PostAsJsonAsync("/auth/employee/register", data);
-            if (response.StatusCode == HttpStatusCode.Created)
+            // Use the correct settings for serialization
+            JsonSerializerSettings settings = new JsonSerializerSettings();
+            settings.Converters.Add(new ObjectIdConverter());
+
+            // Corrected object for serialization
+            var corrected = new
             {
-                MessageBox.Show("El empleado se ha creado correctamente", "Ok");
+                _id = emp.ID,
+                username = emp.Name,
+                hashed_password = emp.Password
+            };
+
+            // Serialize the corrected object to JSON
+            string jsonPayload = JsonConvert.SerializeObject(corrected, settings);
+
+            // Print or log the JSON payload
+            Console.WriteLine("Serialized JSON Payload: " + jsonPayload);
+            MessageBox.Show("Serialized JSON Payload: " + jsonPayload);
+
+            // Ensure the access token header is correctly set
+            _httpClient.DefaultRequestHeaders.Remove("Authorization");
+            _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
+
+            // Create StringContent with the serialized JSON payload
+            var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            try
+            {
+                // Send the request with the serialized JSON payload
+                var response = await _httpClient.PostAsync("/api/admin/admin/new", content);
+
+                if (response.StatusCode == HttpStatusCode.Created)
+                {
+                    MessageBox.Show("El empleado se ha creado correctamente", "Ok");
+                }
+                else
+                {
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al crear el empleado. Status Code: {response.StatusCode}, Response: {responseContent}", "Error");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Error al crear el empleado", "Error");
+                MessageBox.Show($"Exception: {ex.Message}", "Error");
             }
         }
 

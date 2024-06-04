@@ -24,28 +24,17 @@
         <Border Grid.Row="1" Margin="40,20" Background="White" CornerRadius="30">
             <StackPanel>
                 <StackPanel Margin="40,20">
-                    <Label Content="Nombre" FontSize="16"/>
+                    <Label Content="Username" FontSize="16"/>
                     <TextBox Style="{StaticResource TextBoxForm}"  Padding="2" Text="{Binding NameEmployee}"  />
                 </StackPanel>
-                <StackPanel Margin="40,20">
-                    <Label Content="Apellidos" FontSize="16"/>
-                    <TextBox Padding="2" Style="{StaticResource TextBoxForm}" Text="{Binding SurnameEmployee}" />
-                </StackPanel>
-                <StackPanel Margin="40,0">
-                    <Label Content="Email" FontSize="16"/>
-                    <TextBox Padding="2" Style="{StaticResource TextBoxForm}" Text="{Binding EmailEmployee}" />
-                </StackPanel>
-                <StackPanel Margin="40,0">
-                    <Label Content="Imagen" FontSize="16"/>
-                    <TextBox Style="{StaticResource TextBoxForm}"  Text="{Binding ImageEmployee}"  />
-                </StackPanel>
+                <StackPanel Margin="40,20"/>
+                <StackPanel Margin="40,0"/>
+                <StackPanel Margin="40,0"/>
                 <StackPanel  Margin="40,20">
                     <Label>Password</Label>
                     <TextBox Padding="2" Style="{StaticResource TextBoxForm}" Text="{Binding PasswordEmployee}"/>
                 </StackPanel>
-                <StackPanel>
-                    <CheckBox Content="Administrador" Margin="40,20" FontSize="16" IsChecked="{Binding AdminEmployee }"/>
-                </StackPanel>
+                <StackPanel/>
             </StackPanel>
         </Border>
         <DockPanel Grid.Row="2" Margin="40 0 40 0">

@@ -8,6 +8,8 @@ using System.Windows.Input;
 using wpfappintermodular.api;
 using WpfAppIntermodular.Models;
 using WpfAppIntermodular.rsc;
+using MongoDB.Bson;
+
 
 namespace WpfAppIntermodular.ViewModels
 {
@@ -101,6 +103,7 @@ namespace WpfAppIntermodular.ViewModels
             EmpleadoModel empleadoModel = new EmpleadoModel();
             empleadoModel.Name = NameEmployee;
             empleadoModel.Password = PasswordEmployee;
+            empleadoModel.ID = ObjectId.GenerateNewId();
 
             apiService = new ApiService();
            await apiService.CreateEmployee(empleadoModel);
