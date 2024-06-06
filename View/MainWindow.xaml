@@ -21,11 +21,11 @@
                     <TextBlock Margin="10 0 0 0" FontWeight="Bold"  FontSize="16" FontFamily="Montserrat" Foreground="#8563C4"><Run Text="Acceso"/></TextBlock>
                 </StackPanel>
                 <Label Content="Username" FontSize="16"/>
-                <TextBox x:Name="TbLogEmail" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray" >
+                <TextBox x:Name="TbLogEmail" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray">
                     <TextBox.Text>
                         <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
                             <Binding.ValidationRules>
-
+                                <!-- Add any validation rules here if necessary -->
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
@@ -40,19 +40,20 @@
                         </ControlTemplate>
                     </Validation.ErrorTemplate>
                 </TextBox>
-                <Label Content="Password" FontSize="16" Margin="0 15 0 0" />
-                <TextBox x:Name="TbLogPass"  Style="{StaticResource TBMain}"
-                         Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" />
+                <Label Content="Password" FontSize="16" Margin="0 15 0 0"/>
+                <PasswordBox x:Name="TbLogPass" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray" 
+                             PasswordChanged="PasswordBox_PasswordChanged"/>
                 <Button Style="{StaticResource ButtonMain}" Command="{Binding CamposLoginCommand}" Margin="0 20 250 0">
                     <Button.Content>
                         <Grid>
                             <Path Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center"
-                            Data="M0,0 L10,5 L0,10 Z" />
+                                  Data="M0,0 L10,5 L0,10 Z"/>
                         </Grid>
                     </Button.Content>
                 </Button>
             </StackPanel>
         </StackPanel>
-        <Image Source="/cover.png"  Grid.Column="4" Margin="28,0,-21,0" />
+        <Image Source="/cover.png"  Grid.Column="4" Margin="28,0,-21,0"/>
     </Grid>
 </Window>
+

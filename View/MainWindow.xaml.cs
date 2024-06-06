@@ -27,6 +27,14 @@ namespace WpfAppIntermodular
             DataContext= new LoginVM(this);
         }
 
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is LoginVM viewModel)
+            {
+                viewModel.Password = ((PasswordBox)sender).Password;
+            }
+        }
+
 
     }
 }
