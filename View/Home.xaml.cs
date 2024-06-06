@@ -1,9 +1,9 @@
 ﻿
 using System.Windows;
-using WpfAppIntermodular.ViewModels;
-using WpfAppIntermodular.View;
+using SuperAgenda.ViewModels;
+using SuperAgenda.View;
 
-namespace WpfAppIntermodular
+namespace SuperAgenda
 {
     /// <summary>
     /// Lógica de interacción para Home.xaml

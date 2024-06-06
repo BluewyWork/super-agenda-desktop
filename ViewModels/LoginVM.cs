@@ -3,11 +3,11 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using wpfappintermodular.api;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.rsc;
-using WpfAppIntermodular.View;
+using SuperAgenda.Models;
+using SuperAgenda.rsc;
+using SuperAgenda.View;
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
     public class LoginVM : INotifyPropertyChanged
     {

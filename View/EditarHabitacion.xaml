@@ -1,9 +1,9 @@
-﻿<Window x:Class="WpfAppIntermodular.EditarHabitacion"
+﻿<Window x:Class="SuperAgenda.EditarHabitacion"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAppIntermodular.rsc"
+        xmlns:local="clr-namespace:SuperAgenda.rsc"
         mc:Ignorable="d" FontFamily="Montserrat" FontSize="15"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
         Title="Editar Habitación" Height="700" Width="450">

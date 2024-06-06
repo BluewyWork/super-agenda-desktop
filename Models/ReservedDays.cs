@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace WpfAppIntermodular.Models
+namespace SuperAgenda.Models
 {
     public class ReservedDays: INotifyPropertyChanged
     {

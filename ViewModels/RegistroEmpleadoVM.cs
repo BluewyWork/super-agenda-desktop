@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using wpfappintermodular.api;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.rsc;
+using SuperAgenda.Models;
+using SuperAgenda.rsc;
 using MongoDB.Bson;
 
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
     public class RegistroEmpleadoVM : INotifyPropertyChanged
     {

@@ -7,10 +7,10 @@ using System.Windows;
 using System.Windows.Input;
 using Microsoft.OData.Edm;
 using wpfappintermodular.api;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.rsc;
+using SuperAgenda.Models;
+using SuperAgenda.rsc;
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
     class HomeVM : INotifyPropertyChanged
     {

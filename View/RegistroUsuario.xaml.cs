@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WpfAppIntermodular
+namespace SuperAgenda
 {
     /// <summary>
     /// Lógica de interacción para RegistroUsuario.xaml

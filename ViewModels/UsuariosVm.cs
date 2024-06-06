@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using wpfappintermodular.api;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.View;
+using SuperAgenda.Models;
+using SuperAgenda.View;
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
    
     public class UsuariosVm: INotifyPropertyChanged

@@ -13,8 +13,8 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using MongoDB.Bson;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using WpfAppIntermodular;
-using WpfAppIntermodular.Models;
+using SuperAgenda;
+using SuperAgenda.Models;
 
 namespace wpfappintermodular.api
 {

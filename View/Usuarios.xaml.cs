@@ -11,9 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfAppIntermodular.ViewModels;
+using SuperAgenda.ViewModels;
 
-namespace WpfAppIntermodular.View
+namespace SuperAgenda.View
 {
     /// <summary>
     /// Interaction logic for Usuarios.xaml

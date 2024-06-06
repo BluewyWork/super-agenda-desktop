@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WpfAppIntermodular.rsc
+namespace SuperAgenda.rsc
 {
     public class RelayCommand : ICommand
     {

@@ -1,10 +1,10 @@
-﻿<Window x:Class="WpfAppIntermodular.HomeUsuarios"
+﻿<Window x:Class="SuperAgenda.HomeUsuarios"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAppIntermodular.rsc" 
-        xmlns:viewmodels="clr-namespace:WpfAppIntermodular.ViewModels" 
+        xmlns:local="clr-namespace:SuperAgenda.rsc" 
+        xmlns:viewmodels="clr-namespace:SuperAgenda.ViewModels" 
         d:DataContext="{d:DesignInstance Type=viewmodels:HomeUsuariosVM}"
         mc:Ignorable="d" 
         FontFamily="Montserrat"
@@ -41,7 +41,6 @@
                     <MenuItem>
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="N.Usuario" Foreground="#FFCCCCCC" Margin="0 5 0 0"/>
                                 <Image Height="25" Source="../perfil.png" Margin="10 0 0 10"/>
                             </StackPanel>
                         </MenuItem.Header>

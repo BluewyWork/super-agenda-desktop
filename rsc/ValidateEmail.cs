@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
-namespace WpfAppIntermodular.rsc
+namespace SuperAgenda.rsc
 {
     public class ValidateEmail : ValidationRule
     {

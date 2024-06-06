@@ -12,10 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.ViewModels;
+using SuperAgenda.Models;
+using SuperAgenda.ViewModels;
 
-namespace WpfAppIntermodular
+namespace SuperAgenda
 {
     /// <summary>
     /// Lógica de interacción para EditarHabitacion.xaml

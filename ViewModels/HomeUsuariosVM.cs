@@ -5,11 +5,11 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
-using WpfAppIntermodular.Models;
+using SuperAgenda.Models;
 using wpfappintermodular.api;
-using WpfAppIntermodular.rsc;
+using SuperAgenda.rsc;
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
     class HomeUsuariosVM : INotifyPropertyChanged
     {

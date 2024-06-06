@@ -11,11 +11,11 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.View;
-using WpfAppIntermodular.ViewModels;
+using SuperAgenda.Models;
+using SuperAgenda.View;
+using SuperAgenda.ViewModels;
 
-namespace WpfAppIntermodular
+namespace SuperAgenda
 {
     /// <summary>
     /// Lógica de interacción para HomeUsuarios.xaml

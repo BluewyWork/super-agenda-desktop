@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Controls;
 
-namespace WpfAppIntermodular.rsc
+namespace SuperAgenda.rsc
 {
     class ValidateEntero : ValidationRule
     {

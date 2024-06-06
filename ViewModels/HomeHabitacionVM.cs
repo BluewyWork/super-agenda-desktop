@@ -6,10 +6,10 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using wpfappintermodular.api;
-using WpfAppIntermodular.Models;
-using WpfAppIntermodular.rsc;
+using SuperAgenda.Models;
+using SuperAgenda.rsc;
 
-namespace WpfAppIntermodular.ViewModels
+namespace SuperAgenda.ViewModels
 {
     public class HomeHabitacionVM : INotifyPropertyChanged
     {
