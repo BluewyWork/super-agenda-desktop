@@ -56,7 +56,7 @@
                 <ColumnDefinition Width="307*"></ColumnDefinition>
                 <ColumnDefinition Width="493*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="20,0,0,345"  Orientation="Vertical" VerticalAlignment="Center" Height="436" Width="297" >
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="10,10,0,0"  Orientation="Vertical" VerticalAlignment="Top" Height="436" Width="297" >
                 <Label  Margin ="0 10 0 0" FontSize="30" FontWeight="Bold" Foreground="#35B697" >Buscador:</Label>
                 <DockPanel Margin="0 10">
                     <StackPanel Margin="10,10" Width="100">
@@ -84,7 +84,7 @@
                 <Label Grid.Row="0" FontFamily="Montserrat" Foreground="#35B697" FontSize="30" Margin="0 15 0 0"
                        FontWeight="Bold" >Resultados:
                 </Label>
-                <DataGrid x:Name="ListBoxCustomers" Margin="-18,35,21,265" MaxWidth="545" Height="500" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" MaxHeight="350" Grid.RowSpan="2" AutoGenerateColumns="False">
+                <DataGrid x:Name="ListBoxCustomers" Margin="-3,56,8,49" MaxWidth="545" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" MaxHeight="350" AutoGenerateColumns="False" Grid.RowSpan="2">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                         <DataGridTextColumn Header="Nombre" Binding="{Binding Name}"/>
