@@ -12,7 +12,7 @@
         WindowStartupLocation="CenterScreen" 
         WindowStyle="None"
         Title="Home Usuarios" 
-        Height="900" 
+        Height="600" 
         Width="900">
     <Grid>
         <Grid.RowDefinitions>
@@ -72,8 +72,8 @@
                     <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="#35B697" Background="Transparent" BorderBrush="#35B697" Content="Limpiar" Click="Button_Click_4"/>
                 </DockPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="#35B697" Background="Transparent" BorderBrush="#35B697" Content="Editar" Command="{Binding EditUserCommand}"  />
-                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="#35B697" Background="Transparent" BorderBrush="#35B697" Content="Eliminar" Command="{Binding DeleteUserCommand}"  />
+                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="Black" Background="Yellow" BorderBrush="Yellow" Content="Editar" Command="{Binding EditUserCommand}"  />
+                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="White" Background="Red" BorderBrush="Red" Content="Eliminar" Command="{Binding DeleteUserCommand}"  />
                 </StackPanel>
             </StackPanel>
             <Grid Grid.Column="1">

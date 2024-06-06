@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         FontFamily="Montserrat"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        Title="Usuarios" Height="900" Width="900">
+        Title="Usuarios" Height="600" Width="900">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.Background>
@@ -22,18 +22,16 @@
                     <GradientStop Color="#ff84789c" Offset="0.9"/>
                     <GradientStop Color="#ffbeb6ce" Offset="1"/>
                 </LinearGradientBrush>
-
             </Grid.Background>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
 
             <DockPanel Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
-                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
-                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Users" Content="Empleados" Margin="25" Click="Usuarios_Click"></Button>
+                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"/>
+                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Users" Content="Empleados" Margin="25" Click="Usuarios_Click"/>
                 <Menu Width="180" Background="Transparent" Margin="100 35 0 0">
                     <MenuItem>
                         <MenuItem.Header>
@@ -49,19 +47,14 @@
             </DockPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <Label  Margin ="0 0 0 0" FontSize="30" FontWeight="Bold" Foreground="#35B697" >Clientes:</Label>
-            <ListBox x:Name="ListBoxCustomers"  Margin="10,35,21,265"    ItemsSource="{Binding Usuarios}" MaxHeight="700" Grid.RowSpan="2" >
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <DockPanel >
-                            <StackPanel>
-                                <Label Content="Nombre empleado" Style="{StaticResource labelReservas}"/>
-                                <TextBox Text="{Binding Name}" Style="{StaticResource TBMain}"/>
-                            </StackPanel>
-                        </DockPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <Label Margin="10,0,0,10" FontSize="30" FontWeight="Bold" Foreground="#35B697">Clientes:</Label>
+            <DataGrid x:Name="DataGridCustomers" Margin="10,35,10,10" ItemsSource="{Binding Usuarios}" AutoGenerateColumns="False" MaxHeight="700">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
     </Grid>
 </Window>
+
