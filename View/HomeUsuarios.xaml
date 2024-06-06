@@ -3,10 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfAppIntermodular.rsc" xmlns:viewmodels="clr-namespace:WpfAppIntermodular.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:HomeUsuariosVM}"
-        mc:Ignorable="d" FontFamily="Montserrat"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        Title="Home Usuarios" Height="900" Width="900">
+        xmlns:local="clr-namespace:WpfAppIntermodular.rsc" 
+        xmlns:viewmodels="clr-namespace:WpfAppIntermodular.ViewModels" 
+        d:DataContext="{d:DesignInstance Type=viewmodels:HomeUsuariosVM}"
+        mc:Ignorable="d" 
+        FontFamily="Montserrat"
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        Title="Home Usuarios" 
+        Height="900" 
+        Width="900">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
@@ -21,7 +28,6 @@
                     <GradientStop Color="#ff84789c" Offset="0.9"/>
                     <GradientStop Color="#ffbeb6ce" Offset="1"/>
                 </LinearGradientBrush>
-
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -29,7 +35,6 @@
             </Grid.ColumnDefinitions>
             <DockPanel Grid.ColumnSpan="2">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
-
                 <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
                 <Button Style="{StaticResource ButtonStyleHeader}" Content="Empleados"/>
                 <Menu Width="180" Background="Transparent" Margin="100 35 0 0">
@@ -58,7 +63,7 @@
                         <Label Content="Nombre" FontSize="16"/>
                         <TextBox x:Name="NameTextBox" Text="{Binding SearchName}" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray"/>
                     </StackPanel>
-                                   </DockPanel>
+                </DockPanel>
                 <StackPanel Margin="10,20" Width="Auto">
                 </StackPanel>
                 <DockPanel  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 10 20 10" >
@@ -79,19 +84,12 @@
                 <Label Grid.Row="0" FontFamily="Montserrat" Foreground="#35B697" FontSize="30" Margin="0 15 0 0"
                        FontWeight="Bold" >Resultados:
                 </Label>
-                <ListBox x:Name="ListBoxCustomers"  Margin="-18,35,21,265"  MaxWidth="545" Height="500" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" MaxHeight="350" Grid.RowSpan="2" >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <DockPanel >
-                                <Image Source="{Binding Image}" Width="80" ></Image>
-                                <StackPanel>
-                                    <Label Content="Nombre empleado" Style="{StaticResource labelReservas}"/>
-                                    <TextBox Text="{Binding Name}" Style="{StaticResource TBMain}"/>
-                                </StackPanel>
-                                                           </DockPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                <DataGrid x:Name="ListBoxCustomers" Margin="-18,35,21,265" MaxWidth="545" Height="500" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" MaxHeight="350" Grid.RowSpan="2" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Name}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Grid>
     </Grid>
