@@ -298,8 +298,7 @@ namespace wpfappintermodular.api
 
             // Print or log the JSON payload
             Console.WriteLine("Serialized JSON Payload: " + jsonPayload);
-            MessageBox.Show("Serialized JSON Payload: " + jsonPayload);
-
+       
             _httpClient.DefaultRequestHeaders.Add("Authorization", Settings1.Default.AccessToken);
 
             // Create StringContent with the serialized JSON payload
