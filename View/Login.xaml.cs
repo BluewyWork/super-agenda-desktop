@@ -10,36 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SuperAgenda.Models;
 using SuperAgenda.ViewModels;
 
 namespace SuperAgenda
 {
     /// <summary>
-    /// Lógica de interacción para PerfilUsuario.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class PerfilUsuario : Window
+    public partial class MainWindow : Window
     {
-        public PerfilUsuario()
+        public MainWindow()
         {
             InitializeComponent();
+            DataContext= new LoginVM(this);
         }
 
-        public PerfilUsuario(EmpleadoModel u)
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            PerfilUsuarioVM r = new PerfilUsuarioVM(this);
-            DataContext = r;
-            InitializeComponent();
-            r.emp = u;
-            VName.Text = u.Name;
-                }
-
-       
-        private void Atras_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-
+            if (DataContext is LoginVM viewModel)
+            {
+                viewModel.Password = ((PasswordBox)sender).Password;
+            }
         }
     }
 }

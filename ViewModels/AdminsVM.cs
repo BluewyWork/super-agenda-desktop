@@ -11,7 +11,7 @@ using SuperAgenda.rsc;
 
 namespace SuperAgenda.ViewModels
 {
-    class HomeUsuariosVM : INotifyPropertyChanged
+    class AdminsVM : INotifyPropertyChanged
     {
         private ApiService apiService = new ApiService();
         private ObservableCollection<EmpleadoModel> _empleados;
@@ -26,7 +26,7 @@ namespace SuperAgenda.ViewModels
         public ICommand FilterListCommand { get; }
         public ICommand LimpiarCommand { get; }
 
-        public HomeUsuariosVM()
+        public AdminsVM()
         {
             ShowEmployee();
             FilterListCommand = new RelayCommand(FilterEmpleados);

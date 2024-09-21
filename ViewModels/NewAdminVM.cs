@@ -13,7 +13,7 @@ using MongoDB.Bson;
 
 namespace SuperAgenda.ViewModels
 {
-    public class RegistroEmpleadoVM : INotifyPropertyChanged
+    public class NewAdminVM : INotifyPropertyChanged
     {
         private ApiService apiService;
            
@@ -91,7 +91,7 @@ namespace SuperAgenda.ViewModels
 
 
 
-        public RegistroEmpleadoVM()
+        public NewAdminVM()
         {
             CrearEmpleado = new RelayCommand(OnCrearEmpleado);
         }

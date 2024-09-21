@@ -12,7 +12,7 @@ using SuperAgenda.View;
 namespace SuperAgenda.ViewModels
 {
    
-    public class UsuariosVm: INotifyPropertyChanged
+    public class UsersVM: INotifyPropertyChanged
     {
         private ApiService apiService;
         private ObservableCollection<UsuarioModel> _usuarios;
@@ -26,7 +26,7 @@ namespace SuperAgenda.ViewModels
             }
         }
 
-        public UsuariosVm()
+        public UsersVM()
         {
             MostrarUsuarios();
         }

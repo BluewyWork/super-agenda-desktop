@@ -10,31 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SuperAgenda.ViewModels;
 
 namespace SuperAgenda
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Lógica de interacción para RegistroEmpleado.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RegistroEmpleado : Window
     {
-        public MainWindow()
+        public RegistroEmpleado()
         {
             InitializeComponent();
-            DataContext= new LoginVM(this);
+            DataContext = new NewAdminVM();
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        private void Atras_Click(object sender, RoutedEventArgs e)
         {
-            if (DataContext is LoginVM viewModel)
-            {
-                viewModel.Password = ((PasswordBox)sender).Password;
-            }
+            this.Close();
         }
-
-
     }
 }
