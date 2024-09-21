@@ -12,17 +12,17 @@
     <None Remove="btn.png" />
     <None Remove="cover-removebg-preview.png" />
     <None Remove="cover.png" />
-    <None Remove="font\Montserrat-Regular.ttf" />
+    <None Remove="rsc\font\Montserrat-Regular.ttf" />
     <None Remove="habitacion.png" />
-    <None Remove="img\btn.jpg" />
-    <None Remove="img\btn.png" />
-    <None Remove="img\cover-removebg-preview.png" />
-    <None Remove="img\habitacion.png" />
-    <None Remove="img\logo_hotel.jpg" />
-    <None Remove="img\logo_hotel_sin_fondo.png" />
-    <None Remove="img\logo_sin_fondo.png" />
-    <None Remove="img\logo_sin_fondo2-removebg-preview.png" />
-    <None Remove="img\perfilMuestra.jpg" />
+    <None Remove="rsc\img\btn.jpg" />
+    <None Remove="rsc\img\btn.png" />
+    <None Remove="rsc\img\cover-removebg-preview.png" />
+    <None Remove="rsc\img\habitacion.png" />
+    <None Remove="rsc\img\logo_hotel.jpg" />
+    <None Remove="rsc\img\logo_hotel_sin_fondo.png" />
+    <None Remove="rsc\img\logo_sin_fondo.png" />
+    <None Remove="rsc\img\logo_sin_fondo2-removebg-preview.png" />
+    <None Remove="rsc\img\perfilMuestra.jpg" />
     <None Remove="logo_hotel.jpg" />
     <None Remove="logo_hotel_sin_fondo.png" />
     <None Remove="logo_sin_fondo.png" />
@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="font\Montserrat-Regular.ttf">
+    <EmbeddedResource Include="rsc\font\Montserrat-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -45,17 +45,17 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\btn.jpg" />
-    <Resource Include="img\btn.png" />
-    <Resource Include="img\cover-removebg-preview.png" />
-    <Resource Include="img\cover.png" />
-    <Resource Include="img\habitacion.png" />
-    <Resource Include="img\logo_hotel.jpg" />
-    <Resource Include="img\logo_hotel_sin_fondo.png" />
-    <Resource Include="img\logo_sin_fondo.png" />
-    <Resource Include="img\logo_sin_fondo2-removebg-preview.png" />
-    <Resource Include="img\perfilMuestra.jpg" />
-    <Resource Include="img\perfil.png" />
+    <Resource Include="rsc\img\btn.jpg" />
+    <Resource Include="rsc\img\btn.png" />
+    <Resource Include="rsc\img\cover-removebg-preview.png" />
+    <Resource Include="rsc\img\cover.png" />
+    <Resource Include="rsc\img\habitacion.png" />
+    <Resource Include="rsc\img\logo_hotel.jpg" />
+    <Resource Include="rsc\img\logo_hotel_sin_fondo.png" />
+    <Resource Include="rsc\img\logo_sin_fondo.png" />
+    <Resource Include="rsc\img\logo_sin_fondo2-removebg-preview.png" />
+    <Resource Include="rsc\img\perfilMuestra.jpg" />
+    <Resource Include="rsc\img\perfil.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,14 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SuperAgenda"
-             StartupUri="/View/Login.xaml">
+             StartupUri="/src/View/Login.xaml">
              <!--StartupUri="/View/EditarHabitacion.xaml">-->
              <!--StartupUri="/View/MainWindow.xaml">--> 
               
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary  Source="/rsc/Style.xaml"/>
+                <ResourceDictionary  Source="/src/Utils/Style.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

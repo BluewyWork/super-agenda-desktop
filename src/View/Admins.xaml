@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperAgenda.rsc" 
         xmlns:viewmodels="clr-namespace:SuperAgenda.ViewModels" 
-        d:DataContext="{d:DesignInstance Type=viewmodels:HomeUsuariosVM}"
+        d:DataContext="{d:DesignInstance Type=viewmodels:AdminsVM}"
         mc:Ignorable="d" 
         FontFamily="Montserrat"
         ResizeMode="NoResize" 
@@ -41,7 +41,7 @@
                     <MenuItem>
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Image Height="25" Source="../perfil.png" Margin="10 0 0 10"/>
+                                <Image Height="25" Source="/rsc/img/perfil.png" Margin="10 0 0 10"/>
                             </StackPanel>
                         </MenuItem.Header>
                         <MenuItem Header="Crear Empleado" Click="CrearEmpleado_Click"/>
