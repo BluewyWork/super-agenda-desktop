@@ -3,90 +3,88 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SuperAgenda.rsc" 
-        xmlns:viewmodels="clr-namespace:SuperAgenda.ViewModels" 
+        xmlns:local="clr-namespace:SuperAgenda.rsc"
+        xmlns:viewmodels="clr-namespace:SuperAgenda.ViewModels"
         d:DataContext="{d:DesignInstance Type=viewmodels:AdminsVM}"
-        mc:Ignorable="d" 
+        mc:Ignorable="d"
         FontFamily="Montserrat"
-        ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen" 
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None"
-        Title="Home Usuarios" 
-        Height="600" 
+        Title="Home Usuarios"
+        Height="600"
         Width="900">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid>
+
+        <Grid Grid.Row="0">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#ff271c3a" Offset="0"/>
-                    <GradientStop Color="#ff332a45" Offset="0.25"/>
-                    <GradientStop Color="#ff514562" Offset="0.5"/>
-                    <GradientStop Color="#ff84789c" Offset="0.9"/>
-                    <GradientStop Color="#ffbeb6ce" Offset="1"/>
+                    <GradientStop Color="#271c3a" Offset="0" />
+                    <GradientStop Color="#332a45" Offset="0.25" />
+                    <GradientStop Color="#514562" Offset="0.5" />
+                    <GradientStop Color="#84789c" Offset="0.75" />
+                    <GradientStop Color="#beb6ce" Offset="1" />
                 </LinearGradientBrush>
             </Grid.Background>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <DockPanel Grid.ColumnSpan="2">
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center"/>
-                <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="25" Click="Clientes_Click"></Button>
-                <Button Style="{StaticResource ButtonStyleHeader}" Content="Empleados"/>
-                <Menu Width="180" Background="Transparent" Margin="100 35 0 0">
+            <DockPanel Grid.ColumnSpan="2" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20,0,0,0">
+                    <Button Style="{StaticResource ButtonStyleHeader}" x:Name="Clientes" Content="Clientes" Margin="0,0,25,0" Click="Clientes_Click" />
+                    <Button Style="{StaticResource ButtonStyleHeader}" Content="Empleados" />
+                </StackPanel>
+                <Menu Width="180" Background="Transparent" HorizontalAlignment="Right" Margin="0,0,20,0">
                     <MenuItem>
                         <MenuItem.Header>
                             <StackPanel Orientation="Horizontal">
-                                <Image Height="25" Source="/rsc/img/perfil.png" Margin="10 0 0 10"/>
+                                <Image Height="25" Source="/rsc/img/perfil.png" Margin="10,0,0,10" />
                             </StackPanel>
                         </MenuItem.Header>
-                        <MenuItem Header="Crear Empleado" Click="CrearEmpleado_Click"/>
-                        <MenuItem Header="Cerrar Sesión" Click="Cerrar_Click"/>
+                        <MenuItem Header="Crear Empleado" Click="CrearEmpleado_Click" />
+                        <MenuItem Header="Cerrar Sesión" Click="Cerrar_Click" />
                     </MenuItem>
                 </Menu>
             </DockPanel>
         </Grid>
+
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="307*"></ColumnDefinition>
-                <ColumnDefinition Width="493*"></ColumnDefinition>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" HorizontalAlignment="Left" Margin="10,10,0,0"  Orientation="Vertical" VerticalAlignment="Top" Height="436" Width="297" >
-                <Label  Margin ="0 10 0 0" FontSize="30" FontWeight="Bold" Foreground="#35B697" >Buscador:</Label>
-                <DockPanel Margin="0 10">
-                    <StackPanel Margin="10,10" Width="100">
-                        <Label Content="Nombre" FontSize="16"/>
-                        <TextBox x:Name="NameTextBox" Text="{Binding SearchName}" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray"/>
-                    </StackPanel>
-                </DockPanel>
-                <StackPanel Margin="10,20" Width="Auto">
+
+            <StackPanel Grid.Column="0" Background="#f4f4f9" Margin="10,10,10,10">
+                <Label FontSize="24" FontWeight="Bold" Foreground="#35B697" Margin="0,0,0,20">Buscador</Label>
+                <StackPanel HorizontalAlignment="Center">
+                    <Label Content="Nombre" FontSize="16" Foreground="#333" />
+                    <TextBox x:Name="NameTextBox" Text="{Binding SearchName}" Padding="8" FontSize="14" BorderBrush="LightGray" Margin="0,5,0,0" Width="224" />
                 </StackPanel>
-                <DockPanel  Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40 10 20 10" >
-                    <Button Margin="0 10 0 0"  Style="{StaticResource ButtonStyle}" 
-                             Content="Buscar" Command="{Binding FilterListCommand}" Width="90"  />
-                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="#35B697" Background="Transparent" BorderBrush="#35B697" Content="Limpiar" Click="Button_Click_4"/>
-                </DockPanel>
-                <StackPanel Orientation="Horizontal">
-                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="Black" Background="Yellow" BorderBrush="Yellow" Content="Editar" Command="{Binding EditUserCommand}"  />
-                    <Button Style="{StaticResource ButtonStyle}" FontWeight="Bold" Margin="30 10 0 0" Foreground="White" Background="Red" BorderBrush="Red" Content="Eliminar" Command="{Binding DeleteUserCommand}"  />
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource ButtonStyle}" Content="Buscar" Command="{Binding FilterListCommand}" Width="100" Margin="0,10,10,0" />
+                    <Button Style="{StaticResource ButtonStyle}" Content="Limpiar" Command="{Binding ClearSearchCommand}" Width="100" Margin="0,10,0,0" Foreground="#35B697" Background="Transparent" BorderBrush="#35B697" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Style="{StaticResource ButtonStyle}" Content="Editar" Command="{Binding EditUserCommand}" Width="100" Margin="0,10,10,0" Background="#FFD700" Foreground="Black" BorderBrush="#FFD700" />
+                    <Button Style="{StaticResource ButtonStyle}" Content="Eliminar" Command="{Binding DeleteUserCommand}" Width="100" Margin="0,10,10,0" Background="#FF4500" Foreground="White" BorderBrush="#FF4500" />
                 </StackPanel>
             </StackPanel>
-            <Grid Grid.Column="1">
+
+            <Grid Grid.Column="1" Margin="10,10,10,10" Background="White">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="17*"></RowDefinition>
-                    <RowDefinition Height="73*"></RowDefinition>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" FontFamily="Montserrat" Foreground="#35B697" FontSize="30" Margin="0 15 0 0"
-                       FontWeight="Bold" >Resultados:
-                </Label>
-                <DataGrid x:Name="ListBoxCustomers" Margin="-3,56,8,49" MaxWidth="545" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" MaxHeight="350" AutoGenerateColumns="False" Grid.RowSpan="2">
+                <Label Grid.Row="0" FontFamily="Montserrat" Foreground="#35B697" FontSize="24" Margin="20,20,0,0" FontWeight="Bold">Resultados</Label>
+                <DataGrid Grid.Row="1" x:Name="ListBoxCustomers" Margin="20,10,20,20" SelectedItem="{Binding EmpleadoSelecionado}" ItemsSource="{Binding Empleados}" AutoGenerateColumns="False" MaxHeight="400">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
-                        <DataGridTextColumn Header="Nombre" Binding="{Binding Name}"/>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                        <DataGridTextColumn Header="Nombre" Binding="{Binding Name}" />
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
