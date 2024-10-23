@@ -6,54 +6,53 @@
         xmlns:local="clr-namespace:SuperAgenda.rsc"
         mc:Ignorable="d" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         FontFamily="Montserrat" Title="Super Agenda" Height="500" Width="850">
-    <Grid RenderTransformOrigin="0.544,0.501">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="47*" />
-            <ColumnDefinition Width="30*"/>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="344*"/>
-            <ColumnDefinition Width="425*" />
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Margin="-10,0,10,0" Grid.ColumnSpan="5" >
-            <StackPanel Width="350" Height="250" Margin="0 40 330 0" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
-                    <Separator Width="35" BorderThickness="4" BorderBrush="Black" />
-                    <TextBlock Margin="10 0 0 0" FontWeight="Bold"  FontSize="16" FontFamily="Montserrat" Foreground="#8563C4"><Run Text="Acceso"/></TextBlock>
-                </StackPanel>
-                <Label Content="Username" FontSize="16"/>
-                <TextBox x:Name="TbLogEmail" Padding="2" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray">
-                    <TextBox.Text>
-                        <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
-                            <Binding.ValidationRules>
-                                <!-- Add any validation rules here if necessary -->
-                            </Binding.ValidationRules>
-                        </Binding>
-                    </TextBox.Text>
-                    <Validation.ErrorTemplate>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <Border BorderThickness="2" BorderBrush="red">
-                                    <AdornedElementPlaceholder/>
-                                </Border>
-                                <TextBlock Text="{Binding [0].ErrorContent}" Foreground="red"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Validation.ErrorTemplate>
-                </TextBox>
-                <Label Content="Password" FontSize="16" Margin="0 15 0 0"/>
-                <PasswordBox x:Name="TbLogPass" Height="30" FontSize="16" BorderThickness="1" BorderBrush="LightGray" 
-                             PasswordChanged="PasswordBox_PasswordChanged"/>
-                <Button Style="{StaticResource ButtonMain}" Command="{Binding CamposLoginCommand}" Margin="0 20 250 0">
-                    <Button.Content>
-                        <Grid>
-                            <Path Fill="White" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                  Data="M0,0 L10,5 L0,10 Z"/>
-                        </Grid>
-                    </Button.Content>
-                </Button>
+        <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="350">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                <Separator Width="35" BorderThickness="2" BorderBrush="#8563C4" />
+                <TextBlock Margin="10,0,0,0" FontWeight="Bold" FontSize="20" Foreground="#8563C4">
+                    <Run Text="Acceso"/>
+                </TextBlock>
             </StackPanel>
+            <Label Content="Username" FontSize="14" Foreground="Gray"/>
+            <TextBox x:Name="TbLogEmail" Padding="8" Height="35" FontSize="14" BorderBrush="LightGray" Margin="0,5,0,15">
+                <TextBox.Text>
+                    <Binding Path="Email" UpdateSourceTrigger="PropertyChanged" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <!-- Add any validation rules here if necessary -->
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+                <Validation.ErrorTemplate>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <Border BorderThickness="1" BorderBrush="Red">
+                                <AdornedElementPlaceholder/>
+                            </Border>
+                            <TextBlock Text="{Binding [0].ErrorContent}" Foreground="Red"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Validation.ErrorTemplate>
+            </TextBox>
+            <Label Content="Password" FontSize="14" Foreground="Gray"/>
+            <PasswordBox x:Name="TbLogPass" Padding="8" Height="35" FontSize="14" BorderBrush="LightGray" Margin="0,5,0,20" 
+                         PasswordChanged="PasswordBox_PasswordChanged"/>
+            <Button Command="{Binding CamposLoginCommand}" Height="40" Width="150" Background="#8563C4" Foreground="White" 
+                    HorizontalAlignment="Center" Margin="0,20,0,0">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Path Fill="White" Data="M0,0 L10,5 L0,10 Z" Margin="0,0,10,0"/>
+                        <TextBlock Text="Login"/>
+                    </StackPanel>
+                </Button.Content>
+            </Button>
         </StackPanel>
-        <Image Source="/cover.png"  Grid.Column="4" Margin="28,0,-21,0"/>
     </Grid>
 </Window>
-

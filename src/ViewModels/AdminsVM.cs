@@ -37,9 +37,9 @@ namespace SuperAgenda.ViewModels
 
         private async void limparCampos()
         {
-            SearchName = null;
-            SearchSurname = null;
-            SearchEmail = null;
+            SearchName = "";
+            SearchSurname = "";
+            SearchEmail = "";
         }
 
         public void EditUser()
@@ -80,9 +80,10 @@ namespace SuperAgenda.ViewModels
             IEnumerable<EmpleadoModel> filteredEmpleados = Empleados;
 
             if (!string.IsNullOrEmpty(SearchName))
+            {
                 filteredEmpleados = filteredEmpleados.Where(e => e.Name.Contains(SearchName));
-
-            Empleados = new ObservableCollection<EmpleadoModel>(filteredEmpleados);
+                Empleados = new ObservableCollection<EmpleadoModel>(filteredEmpleados);
+            }
         }
 
         private async void ShowEmployee()
@@ -96,7 +97,6 @@ namespace SuperAgenda.ViewModels
             {
                 MessageBox.Show($"Error al mostrar empleados: {ex.Message}");
             }
-
         }
 
         public string SearchName

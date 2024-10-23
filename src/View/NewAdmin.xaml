@@ -17,30 +17,27 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="117*"></RowDefinition>
-            <RowDefinition Height="403*"></RowDefinition>
-            <RowDefinition Height="64*"></RowDefinition>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="1" Margin="40,20" Background="White" CornerRadius="30">
-            <StackPanel>
-                <StackPanel Margin="40,20">
-                    <Label Content="Username" FontSize="16"/>
-                    <TextBox Style="{StaticResource TextBoxForm}"  Padding="2" Text="{Binding NameEmployee}"  />
+        <Border Grid.Row="1" Margin="40,20" Background="White" CornerRadius="20">
+            <StackPanel Margin="40">
+                <StackPanel Margin="0,20">
+                    <Label Content="Username" FontSize="16" Foreground="#333"/>
+                    <TextBox Style="{StaticResource TextBoxForm}" Padding="8" FontSize="14" Text="{Binding NameEmployee}" Margin="0,5"/>
                 </StackPanel>
-                <StackPanel Margin="40,20"/>
-                <StackPanel Margin="40,0"/>
-                <StackPanel Margin="40,0"/>
-                <StackPanel  Margin="40,20">
-                    <Label>Password</Label>
-                    <TextBox Padding="2" Style="{StaticResource TextBoxForm}" Text="{Binding PasswordEmployee}"/>
+                <StackPanel Margin="0,20">
+                    <Label Content="Password" FontSize="16" Foreground="#333"/>
+                    <PasswordBox Style="{StaticResource TextBoxForm}" Padding="8" FontSize="14" Password="{Binding PasswordEmployee}" Margin="0,5"/>
                 </StackPanel>
-                <StackPanel/>
             </StackPanel>
         </Border>
-        <DockPanel Grid.Row="2" Margin="40 0 40 0">
-            <Button  Style="{StaticResource ButtonStyle}" x:Name="Atras" Margin="0 5 20 10" Padding="10 0 10 0" 
-                    Width="130" Background="Red" Content="Atras" Click="Atras_Click"  />
-            <Button Command="{Binding CrearEmpleado}" Style="{StaticResource ButtonStyle}" x:Name="btnRegistrarEmpleado" HorizontalAlignment="Right" Margin="0 5 0 10" Padding="10 0 10 0" Width="130" Content="Registrar empleado"    />
+        <DockPanel Grid.Row="2" Margin="40,0">
+            <Button Style="{StaticResource ButtonStyle}" x:Name="Atras" Width="130" Background="#E74C3C" Foreground="White" 
+                    Content="Atras" Click="Atras_Click" Margin="0,5,20,10"/>
+            <Button Command="{Binding CrearEmpleado}" Style="{StaticResource ButtonStyle}" x:Name="btnRegistrarEmpleado" Width="180" Background="#2ECC71" Foreground="White" 
+                    Content="Registrar empleado" Margin="0,5,0,10" HorizontalAlignment="Right"/>
         </DockPanel>
     </Grid>
 </Window>

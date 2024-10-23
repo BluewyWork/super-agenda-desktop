@@ -92,7 +92,7 @@ namespace SuperAgenda.ViewModels
         private async void Login()
         {
             apiService = new ApiService();
-            if( await apiService.AutenticarUsuarioAsync(Email, Password))
+            if( await apiService.AuthenticateUser(Email, Password))
             {
                 Usuarios home = new Usuarios();
                 home.Show();
