@@ -17,9 +17,9 @@ namespace SuperAgenda
     /// <summary>
     /// Lógica de interacción para RegistroUsuario.xaml
     /// </summary>
-    public partial class NewUser : Window
+    public partial class RegistroUsuario : Window
     {
-        public NewUser()
+        public RegistroUsuario()
         {
             InitializeComponent();
         }

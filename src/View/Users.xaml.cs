@@ -18,23 +18,23 @@ namespace SuperAgenda.View
     /// <summary>
     /// Interaction logic for Usuarios.xaml
     /// </summary>
-    public partial class Users : Window
+    public partial class Usuarios : Window
     {
-        public Users()
+        public Usuarios()
         {
             InitializeComponent();
             DataContext = new  UsersVM();
         }
         private void Usuarios_Click(object sender, RoutedEventArgs e)
         {
-            Admins homeUsuarios = new Admins();
+            HomeUsuarios homeUsuarios = new HomeUsuarios();
             homeUsuarios.Show();
             this.Close();
         }
 
         private void CrearEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            NewAdmin registro = new NewAdmin();
+            RegistroEmpleado registro = new RegistroEmpleado();
             registro.ShowDialog();
         }
        
@@ -47,7 +47,7 @@ namespace SuperAgenda.View
 
         private void Clientes_Click(object sender, RoutedEventArgs e)
         {
-            Users usuarios = new Users();
+            Usuarios usuarios = new Usuarios();
             usuarios.Show();
             this.Close();
         }
