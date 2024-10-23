@@ -20,19 +20,18 @@ namespace SuperAgenda
     /// <summary>
     /// Lógica de interacción para HomeUsuarios.xaml
     /// </summary>
-    public partial class HomeUsuarios : Window
+    public partial class Admins : Window
     {
         AdminsVM homeUsuariosVM;
-        public HomeUsuarios()
+        public Admins()
         {
             InitializeComponent();
             DataContext = new AdminsVM();
-
         }
 
         private void CrearEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            RegistroEmpleado registro = new RegistroEmpleado();
+            NewAdmin registro = new NewAdmin();
             registro.ShowDialog();
         }
      
@@ -45,14 +44,14 @@ namespace SuperAgenda
 
         private void Clientes_Click(object sender, RoutedEventArgs e)
         {
-            Usuarios usuarios = new Usuarios();
+            Users usuarios = new Users();
             usuarios.Show();
             this.Close();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            HomeUsuarios x = new HomeUsuarios();
+            Admins x = new Admins();
             x.Show();
             this.Close();
         }

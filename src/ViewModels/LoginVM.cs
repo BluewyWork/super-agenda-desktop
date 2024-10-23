@@ -94,7 +94,7 @@ namespace SuperAgenda.ViewModels
             apiService = new ApiService();
             if( await apiService.AuthenticateUser(Email, Password))
             {
-                Usuarios home = new Usuarios();
+                Users home = new Users();
                 home.Show();
                 mw.Close();
             }

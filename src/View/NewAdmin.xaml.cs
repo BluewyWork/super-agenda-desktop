@@ -18,9 +18,9 @@ namespace SuperAgenda
     /// <summary>
     /// Lógica de interacción para RegistroEmpleado.xaml
     /// </summary>
-    public partial class RegistroEmpleado : Window
+    public partial class NewAdmin : Window
     {
-        public RegistroEmpleado()
+        public NewAdmin()
         {
             InitializeComponent();
             DataContext = new NewAdminVM();
